@@ -6,6 +6,8 @@
 
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct CodeBlock: Fragment {
     var modifierTarget: Modifier.Target { .codeBlocks }
 
@@ -55,7 +57,6 @@ internal struct CodeBlock: Fragment {
         return "<pre><code\(languageClass)>\(code)</code></pre>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         return AnyView(VStack {
             Text("TODO: Code block")

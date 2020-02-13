@@ -5,6 +5,8 @@
 */
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct Link: Fragment {
     
     var modifierTarget: Modifier.Target { .links }
@@ -37,7 +39,6 @@ internal struct Link: Fragment {
         return "<a href=\"\(url)\">\(title)</a>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         return AnyView(Text("TODO: Link"))
 //        Button(action: {UIApplication.shared.open(url)}) {

@@ -29,6 +29,7 @@ internal extension Linux {
 }
 
 #if canImport(ObjectiveC)
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 internal final class LinuxVerificationTests: XCTestCase {
     func testAllTestsRunOnLinux() {

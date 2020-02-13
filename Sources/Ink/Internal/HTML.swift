@@ -5,6 +5,8 @@
 */
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct HTML: Fragment {
     var modifierTarget: Modifier.Target { .html }
 
@@ -57,7 +59,6 @@ internal struct HTML: Fragment {
         String(string)
     }
 
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         // Since we want to strip all HTML from plain text output,
         // there is nothing to return here, just an empty string.

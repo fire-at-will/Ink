@@ -5,6 +5,8 @@
 */
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct Paragraph: Fragment {
     var modifierTarget: Modifier.Target { .paragraphs }
 
@@ -20,7 +22,6 @@ internal struct Paragraph: Fragment {
         return "<p>\(body)</p>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         let body = text.plainText()
         return AnyView(Text(body).font(.body))

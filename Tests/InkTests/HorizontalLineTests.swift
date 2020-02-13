@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 final class HorizontalLineTests: XCTestCase {
     func testHorizonalLineWithDashes() {
@@ -39,6 +40,7 @@ final class HorizontalLineTests: XCTestCase {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 extension HorizontalLineTests {
     static var allTests: Linux.TestList<HorizontalLineTests> {

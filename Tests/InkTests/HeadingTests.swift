@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 final class HeadingTests: XCTestCase {
     func testHeading() {
@@ -61,6 +62,7 @@ final class HeadingTests: XCTestCase {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 extension HeadingTests {
     static var allTests: Linux.TestList<HeadingTests> {

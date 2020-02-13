@@ -17,6 +17,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 public struct MarkdownParser {
     private var modifiers: ModifierCollection
@@ -125,6 +126,7 @@ public struct MarkdownParser {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 private extension MarkdownParser {
     struct ParsedFragment {

@@ -5,6 +5,8 @@
 */
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct HorizontalLine: Fragment {
     var modifierTarget: Modifier.Target { .horizontalLines }
 
@@ -23,7 +25,6 @@ internal struct HorizontalLine: Fragment {
         "<hr>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         AnyView(RoundedRectangle(cornerRadius: 1, style: .continuous)
             .fill(Color.gray.opacity(0.8))

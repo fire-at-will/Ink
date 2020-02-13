@@ -13,6 +13,7 @@
 /// strings using `MarkdownParser`.
 import SwiftUI
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 public struct Markdown {
     /// The HTML representation of the Markdown, ready to
@@ -46,6 +47,7 @@ public struct Markdown {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 private extension Markdown {
     final class TitleStorage {

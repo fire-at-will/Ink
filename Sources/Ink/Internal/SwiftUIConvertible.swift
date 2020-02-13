@@ -6,7 +6,9 @@
 
 
 import SwiftUI
+
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal protocol SwiftUIConvertible {
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView
 }

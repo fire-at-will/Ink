@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 final class TextFormattingTests: XCTestCase {
     func testParagraph() {
@@ -151,6 +152,7 @@ final class TextFormattingTests: XCTestCase {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 extension TextFormattingTests {
     static var allTests: Linux.TestList<TextFormattingTests> {

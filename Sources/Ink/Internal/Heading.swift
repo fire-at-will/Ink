@@ -5,6 +5,8 @@
 */
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct Heading: Fragment {
     var modifierTarget: Modifier.Target { .headings }
     var level: Int
@@ -30,7 +32,6 @@ internal struct Heading: Fragment {
         return "<\(tagName)>\(body)</\(tagName)>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         #warning("TODO: add font based on level")
         return AnyView(Text(text.plainText()).font(.title))

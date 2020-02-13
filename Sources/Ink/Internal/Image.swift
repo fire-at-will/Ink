@@ -6,6 +6,8 @@
 
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct Image: Fragment {
     var modifierTarget: Modifier.Target { .images }
 
@@ -28,7 +30,6 @@ internal struct Image: Fragment {
         return "<img src=\"\(url)\"\(alt)/>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         return AnyView(Text("TODO: Image"))
     }

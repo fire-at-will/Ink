@@ -6,6 +6,8 @@
 
 import SwiftUI
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 internal struct Blockquote: Fragment {
     var modifierTarget: Modifier.Target { .blockquotes }
 
@@ -39,7 +41,6 @@ internal struct Blockquote: Fragment {
         return "<blockquote><p>\(body)</p></blockquote>"
     }
     
-    @available(OSX 10.15, *)
     func swiftUIView() -> AnyView {
         let body = text.plainText()
         return AnyView(Text(body).modifier(BlockQuote()))
@@ -50,6 +51,7 @@ internal struct Blockquote: Fragment {
     }
 }
 
+@available(iOS 13.0.0, *)
 @available(OSX 10.15, *)
 fileprivate struct BlockQuote: ViewModifier {
     func body(content: Content) -> some View {
