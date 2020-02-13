@@ -39,6 +39,13 @@ public struct MarkdownParser {
     public func html(from markdown: String) -> String {
         parse(markdown).html
     }
+    
+    /// Convert a Markdown string into a SwiftUI view, discarding any metadata
+    /// found in the process. To preserve the Markdown's metadata,
+    /// use the `parse` method instead.
+    public func swiftUI(from markdown: String) -> AnyView {
+        parse(markdown).swiftUIView
+    }
 
     /// Parse a Markdown string into a `Markdown` value, which contains
     /// both the HTML representation of the given string, and also any
