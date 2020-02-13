@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class ModifierTests: XCTestCase {
     func testModifierInput() {
         var allHTML = [String]()
@@ -78,6 +79,7 @@ final class ModifierTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension ModifierTests {
     static var allTests: Linux.TestList<ModifierTests> {
         return [

@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class TextFormattingTests: XCTestCase {
     func testParagraph() {
         let html = MarkdownParser().html(from: "Hello, world!")
@@ -150,6 +151,7 @@ final class TextFormattingTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension TextFormattingTests {
     static var allTests: Linux.TestList<TextFormattingTests> {
         return [

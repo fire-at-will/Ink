@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class HeadingTests: XCTestCase {
     func testHeading() {
         let html = MarkdownParser().html(from: "# Hello, world!")
@@ -60,6 +61,7 @@ final class HeadingTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension HeadingTests {
     static var allTests: Linux.TestList<HeadingTests> {
         return [

@@ -58,5 +58,10 @@ default:
     exit(1)
 }
 
-let parser = MarkdownParser()
-print(parser.html(from: markdown))
+if #available(OSX 10.15, *) {
+    let parser = MarkdownParser()
+    print(parser.html(from: markdown))
+} else {
+    // Fallback on earlier versions
+}
+

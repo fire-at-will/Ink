@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class MarkdownTests: XCTestCase {
     func testParsingMetadata() {
         let markdown = MarkdownParser().parse("""
@@ -131,6 +132,7 @@ final class MarkdownTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension MarkdownTests {
     static var allTests: Linux.TestList<MarkdownTests> {
         return [

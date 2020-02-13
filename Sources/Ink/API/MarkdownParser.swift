@@ -14,6 +14,10 @@
 ///
 /// To customize how this parser performs its work, attach
 /// a `Modifier` using the `addModifier` method.
+
+import SwiftUI
+
+@available(OSX 10.15, *)
 public struct MarkdownParser {
     private var modifiers: ModifierCollection
 
@@ -83,24 +87,38 @@ public struct MarkdownParser {
 
         let urls = NamedURLCollection(urlsByName: urlsByName)
 
+        var swiftUIViews: [AnyView] = []
         let html = fragments.reduce(into: "") { result, wrapper in
             let html = wrapper.fragment.html(
                 usingURLs: urls,
                 rawString: wrapper.rawString,
                 applyingModifiers: modifiers
             )
-
+            
+            let swiftUIView = wrapper.fragment.swiftUIView()
+            swiftUIViews.append(swiftUIView)
+            
             result.append(html)
         }
+        
+        let swiftUIView = AnyView(
+            VStack {
+                ForEach(0..<swiftUIViews.count) { i in
+                    swiftUIViews[i]
+                }
+            }.padding()
+        )
 
         return Markdown(
             html: html,
+            swiftUIView: swiftUIView,
             titleHeading: titleHeading,
             metadata: metadata?.values ?? [:]
         )
     }
 }
 
+@available(OSX 10.15, *)
 private extension MarkdownParser {
     struct ParsedFragment {
         var fragment: Fragment

@@ -11,10 +11,14 @@
 ///
 /// You create instances of this type by parsing Markdown
 /// strings using `MarkdownParser`.
+import SwiftUI
+
+@available(OSX 10.15, *)
 public struct Markdown {
     /// The HTML representation of the Markdown, ready to
     /// be rendered in a web browser.
     public var html: String
+    public var swiftUIView: AnyView
     /// The inferred title of the document, from any top-level
     /// heading found when parsing. If the Markdown text contained
     /// two top-level headings, then this property will contain
@@ -32,14 +36,17 @@ public struct Markdown {
     private var titleStorage = TitleStorage()
 
     internal init(html: String,
+                  swiftUIView: AnyView,
                   titleHeading: Heading?,
                   metadata: [String : String]) {
         self.html = html
+        self.swiftUIView = swiftUIView
         self.titleHeading = titleHeading
         self.metadata = metadata
     }
 }
 
+@available(OSX 10.15, *)
 private extension Markdown {
     final class TitleStorage {
         var title: String?

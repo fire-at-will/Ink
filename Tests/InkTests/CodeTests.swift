@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class CodeTests: XCTestCase {
     func testInlineCode() {
         let html = MarkdownParser().html(from: "Hello `inline.code()`")
@@ -86,6 +87,7 @@ final class CodeTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension CodeTests {
     static var allTests: Linux.TestList<CodeTests> {
         return [

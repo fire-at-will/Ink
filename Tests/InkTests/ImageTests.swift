@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class ImageTests: XCTestCase {
     func testImageWithURL() {
         let html = MarkdownParser().html(from: "![](url)")
@@ -42,6 +43,7 @@ final class ImageTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension ImageTests {
     static var allTests: Linux.TestList<ImageTests> {
         return [

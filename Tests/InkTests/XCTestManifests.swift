@@ -6,6 +6,7 @@
 
 import XCTest
 
+@available(OSX 10.15, *)
 public func allTests() -> [Linux.TestCase] {
     return [
         Linux.makeTestCase(using: CodeTests.allTests),

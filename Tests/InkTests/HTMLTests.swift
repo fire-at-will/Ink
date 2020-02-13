@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class HTMLTests: XCTestCase {
     func testTopLevelHTML() {
         let html = MarkdownParser().html(from: """
@@ -113,6 +114,7 @@ final class HTMLTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension HTMLTests {
     static var allTests: Linux.TestList<HTMLTests> {
         return [

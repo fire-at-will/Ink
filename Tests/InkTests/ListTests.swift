@@ -7,6 +7,7 @@
 import XCTest
 import Ink
 
+@available(OSX 10.15, *)
 final class ListTests: XCTestCase {
     func testOrderedList() {
         let html = MarkdownParser().html(from: """
@@ -135,6 +136,7 @@ final class ListTests: XCTestCase {
     }
 }
 
+@available(OSX 10.15, *)
 extension ListTests {
     static var allTests: Linux.TestList<ListTests> {
         return [
