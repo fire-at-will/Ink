@@ -4,6 +4,8 @@
 *  MIT license, see LICENSE file for details
 */
 
+import SwiftUI
+
 internal struct Image: Fragment {
     var modifierTarget: Modifier.Target { .images }
 
@@ -24,6 +26,11 @@ internal struct Image: Fragment {
         }
 
         return "<img src=\"\(url)\"\(alt)/>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        return AnyView(Text("TODO: Image"))
     }
 
     func plainText() -> String {

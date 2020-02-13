@@ -4,6 +4,8 @@
 *  MIT license, see LICENSE file for details
 */
 
+import SwiftUI
+
 internal struct Blockquote: Fragment {
     var modifierTarget: Modifier.Target { .blockquotes }
 
@@ -36,8 +38,25 @@ internal struct Blockquote: Fragment {
         let body = text.html(usingURLs: urls, modifiers: modifiers)
         return "<blockquote><p>\(body)</p></blockquote>"
     }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        let body = text.plainText()
+        return AnyView(Text(body).modifier(BlockQuote()))
+    }
 
     func plainText() -> String {
         text.plainText()
+    }
+}
+
+@available(OSX 10.15, *)
+fileprivate struct BlockQuote: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.body)
+            .background(Color.gray.opacity(0.7))
+            .cornerRadius(10)
+            .padding()
     }
 }

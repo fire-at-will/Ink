@@ -3,8 +3,10 @@
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
+import SwiftUI
 
 internal struct Link: Fragment {
+    
     var modifierTarget: Modifier.Target { .links }
 
     var target: Target
@@ -33,6 +35,15 @@ internal struct Link: Fragment {
         let url = target.url(from: urls)
         let title = text.html(usingURLs: urls, modifiers: modifiers)
         return "<a href=\"\(url)\">\(title)</a>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        return AnyView(Text("TODO: Link"))
+//        Button(action: {UIApplication.shared.open(url)}) {
+//            Text(target.url()
+//                .foregroundColor(Color.blue)
+//        }
     }
 
     func plainText() -> String {

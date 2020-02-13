@@ -3,6 +3,7 @@
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
+import SwiftUI
 
 struct InlineCode: Fragment {
     var modifierTarget: Modifier.Target { .inlineCode }
@@ -37,6 +38,11 @@ struct InlineCode: Fragment {
     func html(usingURLs urls: NamedURLCollection,
               modifiers: ModifierCollection) -> String {
         return "<code>\(code)</code>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        return AnyView(Text(code).background(Color.gray.opacity(0.8).cornerRadius(2)))
     }
 
     func plainText() -> String {

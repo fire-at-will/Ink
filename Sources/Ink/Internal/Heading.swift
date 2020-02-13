@@ -3,6 +3,7 @@
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
+import SwiftUI
 
 internal struct Heading: Fragment {
     var modifierTarget: Modifier.Target { .headings }
@@ -27,6 +28,12 @@ internal struct Heading: Fragment {
 
         let tagName = "h\(level)"
         return "<\(tagName)>\(body)</\(tagName)>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        #warning("TODO: add font based on level")
+        return AnyView(Text(text.plainText()).font(.title))
     }
 
     func plainText() -> String {

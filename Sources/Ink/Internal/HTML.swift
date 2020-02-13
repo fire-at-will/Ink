@@ -3,6 +3,7 @@
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
+import SwiftUI
 
 internal struct HTML: Fragment {
     var modifierTarget: Modifier.Target { .html }
@@ -56,6 +57,13 @@ internal struct HTML: Fragment {
         String(string)
     }
 
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        // Since we want to strip all HTML from plain text output,
+        // there is nothing to return here, just an empty string.
+        AnyView(Text(""))
+    }
+    
     func plainText() -> String {
         // Since we want to strip all HTML from plain text output,
         // there is nothing to return here, just an empty string.

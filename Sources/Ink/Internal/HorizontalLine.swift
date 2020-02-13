@@ -3,6 +3,7 @@
 *  Copyright (c) John Sundell 2019
 *  MIT license, see LICENSE file for details
 */
+import SwiftUI
 
 internal struct HorizontalLine: Fragment {
     var modifierTarget: Modifier.Target { .horizontalLines }
@@ -20,6 +21,13 @@ internal struct HorizontalLine: Fragment {
     func html(usingURLs urls: NamedURLCollection,
               modifiers: ModifierCollection) -> String {
         "<hr>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        AnyView(RoundedRectangle(cornerRadius: 1, style: .continuous)
+            .fill(Color.gray.opacity(0.8))
+        )
     }
 
     func plainText() -> String {

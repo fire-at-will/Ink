@@ -4,6 +4,8 @@
 *  MIT license, see LICENSE file for details
 */
 
+import SwiftUI
+
 internal struct CodeBlock: Fragment {
     var modifierTarget: Modifier.Target { .codeBlocks }
 
@@ -51,6 +53,14 @@ internal struct CodeBlock: Fragment {
               modifiers: ModifierCollection) -> String {
         let languageClass = language.isEmpty ? "" : " class=\"language-\(language)\""
         return "<pre><code\(languageClass)>\(code)</code></pre>"
+    }
+    
+    @available(OSX 10.15, *)
+    func swiftUIView() -> AnyView {
+        return AnyView(VStack {
+            Text("TODO: Code block")
+            Text(code)
+        })
     }
 
     func plainText() -> String {
