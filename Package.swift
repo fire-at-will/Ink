@@ -12,8 +12,8 @@ let package = Package(
     name: "Ink",
     platforms: [
         .macOS(.v10_15),
-        .iOS(SupportedPlatform.IOSVersion.v13),
-    ]
+        .iOS(SupportedPlatform.IOSVersion.v13)
+    ],
     products: [
         .library(name: "Ink", targets: ["Ink"]),
         .executable(name: "ink-cli", targets: ["InkCLI"])
