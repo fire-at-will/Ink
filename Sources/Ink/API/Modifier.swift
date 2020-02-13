@@ -38,6 +38,8 @@ public struct Modifier {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 public extension Modifier {
     enum Target {
         case metadataKeys

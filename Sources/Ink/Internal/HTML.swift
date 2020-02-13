@@ -72,6 +72,8 @@ internal struct HTML: Fragment {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 private extension Reader {
     typealias HTMLElement = (name: Substring, isSelfClosing: Bool)
 

@@ -64,6 +64,8 @@ internal struct Metadata: Readable {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 private extension Metadata {
     static func trim(_ string: Substring) -> String {
         String(string

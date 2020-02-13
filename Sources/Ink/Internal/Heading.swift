@@ -42,6 +42,8 @@ internal struct Heading: Fragment {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 private extension Heading {
     func stripTrailingMarkers(from text: String) -> String {
         guard !text.isEmpty else { return text }

@@ -9,6 +9,8 @@ internal protocol HTMLConvertible {
               modifiers: ModifierCollection) -> String
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 extension HTMLConvertible where Self: Modifiable {
     func html(usingURLs urls: NamedURLCollection,
               rawString: Substring,

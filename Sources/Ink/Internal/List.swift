@@ -183,6 +183,8 @@ internal struct List: Fragment {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 private extension List {
     struct Item: HTMLConvertible {
         var text: FormattedText

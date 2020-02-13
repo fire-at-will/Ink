@@ -52,6 +52,8 @@ internal struct Link: Fragment {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 extension Link {
     enum Target {
         case url(URL)
@@ -59,6 +61,8 @@ extension Link {
     }
 }
 
+@available(iOS 13.0.0, *)
+@available(OSX 10.15, *)
 extension Link.Target {
     func url(from urls: NamedURLCollection) -> URL {
         switch self {
