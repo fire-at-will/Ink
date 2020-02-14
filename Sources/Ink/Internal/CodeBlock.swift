@@ -6,8 +6,6 @@
 
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal struct CodeBlock: Fragment {
     var modifierTarget: Modifier.Target { .codeBlocks }
 
@@ -57,10 +55,21 @@ internal struct CodeBlock: Fragment {
         return "<pre><code\(languageClass)>\(code)</code></pre>"
     }
     
-    func swiftUIView() -> AnyView {
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
         return AnyView(VStack {
-            Text("TODO: Code block")
-            Text(code)
+            
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color(.secondarySystemGroupedBackground).opacity(0.8))
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                Text(code)
+                    .lineLimit(nil)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .cornerRadius(10)
+                    .padding()
+                    .padding()
+            }
         })
     }
 

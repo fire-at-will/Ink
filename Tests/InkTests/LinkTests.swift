@@ -7,8 +7,6 @@
 import XCTest
 import Ink
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 final class LinkTests: XCTestCase {
     func testLinkWithURL() {
         let html = MarkdownParser().html(from: "[Title](url)")
@@ -73,8 +71,6 @@ final class LinkTests: XCTestCase {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 extension LinkTests {
     static var allTests: Linux.TestList<LinkTests> {
         return [

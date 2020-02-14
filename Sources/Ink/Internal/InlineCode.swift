@@ -5,8 +5,6 @@
 */
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 struct InlineCode: Fragment {
     var modifierTarget: Modifier.Target { .inlineCode }
 
@@ -42,8 +40,8 @@ struct InlineCode: Fragment {
         return "<code>\(code)</code>"
     }
     
-    func swiftUIView() -> AnyView {
-        return AnyView(Text(code).background(Color.gray.opacity(0.8).cornerRadius(2)))
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
+        return AnyView(Text(code).background(Color.green.opacity(0.8).cornerRadius(2)))
     }
 
     func plainText() -> String {

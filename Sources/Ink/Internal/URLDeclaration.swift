@@ -6,7 +6,7 @@
 
 internal struct URLDeclaration: Readable {
     var name: String
-    var url: URL
+    var url: InkURL
 
     static func read(using reader: inout Reader) throws -> Self {
         try reader.read("[")

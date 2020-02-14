@@ -72,8 +72,6 @@ internal final class TextStyleMarker: Readable, HTMLConvertible {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 extension TextStyleMarker {
     enum Kind {
         case opening

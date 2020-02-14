@@ -5,8 +5,6 @@
 */
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal struct HTML: Fragment {
     var modifierTarget: Modifier.Target { .html }
 
@@ -59,10 +57,10 @@ internal struct HTML: Fragment {
         String(string)
     }
 
-    func swiftUIView() -> AnyView {
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
         // Since we want to strip all HTML from plain text output,
         // there is nothing to return here, just an empty string.
-        AnyView(Text(""))
+        AnyView(Text("HTML"))
     }
     
     func plainText() -> String {
@@ -72,8 +70,6 @@ internal struct HTML: Fragment {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 private extension Reader {
     typealias HTMLElement = (name: Substring, isSelfClosing: Bool)
 

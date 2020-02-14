@@ -5,9 +5,8 @@
 */
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal struct Paragraph: Fragment {
+    
     var modifierTarget: Modifier.Target { .paragraphs }
 
     private var text: FormattedText
@@ -22,9 +21,9 @@ internal struct Paragraph: Fragment {
         return "<p>\(body)</p>"
     }
     
-    func swiftUIView() -> AnyView {
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
         let body = text.plainText()
-        return AnyView(Text(body).font(.body))
+        return AnyView(Text(body).font(.body).fixedSize(horizontal: false, vertical: true))
     }
 
     func plainText() -> String {

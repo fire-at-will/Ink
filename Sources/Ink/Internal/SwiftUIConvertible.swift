@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal protocol SwiftUIConvertible {
-    func swiftUIView() -> AnyView
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView
 }

@@ -14,8 +14,6 @@ internal struct Reader {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 extension Reader {
     struct Error: Swift.Error {}
 
@@ -166,8 +164,6 @@ extension Reader {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 private extension Reader {
     func lookBehindAtPreviousCharacter() -> Character? {
         guard currentIndex != string.startIndex else { return nil }

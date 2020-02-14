@@ -5,8 +5,6 @@
  */
 import SwiftUI
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal struct List: Fragment {
     var modifierTarget: Modifier.Target { .lists }
     
@@ -151,20 +149,35 @@ internal struct List: Fragment {
         return "<\(tagName)\(startAttribute)>\(body)</\(tagName)>"
     }
     
-    func swiftUIView() -> AnyView {
-        return AnyView(VStack {
-            ForEach(0..<items.count) { i -> AnyView in
-                let listMarker: String
-                
-                switch self.kind {
-                case .unordered:
-                    listMarker = "•"
-                case let .ordered(startingIndex):
-                    listMarker = "\(i + startingIndex)."
+    func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
+        return AnyView(
+            HStack {
+                VStack(alignment: .leading) {
+                    ForEach(0..<items.count) { i -> AnyView in
+                        let listMarker: String
+                        
+                        switch self.kind {
+                        case .unordered:
+                            listMarker = "•"
+                        case let .ordered(startingIndex):
+                            listMarker = "\(i + startingIndex)."
+                        }
+                        return AnyView(
+                            HStack {
+                                Text("\(listMarker) \(self.items[i].text.plainText())")
+                                    .fixedSize(horizontal: false, vertical: true)
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity)
+                            
+                        )
+                    }
                 }
-                return AnyView(Text("\(listMarker) \(self.items[i].text.plainText())"))
+                .frame(maxWidth: .infinity)
+                .padding(.leading)
+                Spacer()
             }
-        }.padding(.leading)
+            
         )
     }
     
@@ -183,8 +196,6 @@ internal struct List: Fragment {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 private extension List {
     struct Item: HTMLConvertible {
         var text: FormattedText

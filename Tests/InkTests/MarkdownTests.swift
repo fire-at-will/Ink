@@ -7,8 +7,6 @@
 import XCTest
 import Ink
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 final class MarkdownTests: XCTestCase {
     func testParsingMetadata() {
         let markdown = MarkdownParser().parse("""
@@ -133,8 +131,6 @@ final class MarkdownTests: XCTestCase {
     }
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 extension MarkdownTests {
     static var allTests: Linux.TestList<MarkdownTests> {
         return [

@@ -8,8 +8,6 @@ import XCTest
 
 public enum Linux {}
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 public extension Linux {
     typealias TestCase = (testCaseClass: XCTestCase.Type, allTests: TestManifest)
     typealias TestManifest = [(String, TestRunner)]
@@ -18,8 +16,6 @@ public extension Linux {
     typealias Test<T: XCTestCase> = (T) -> () throws -> Void
 }
 
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal extension Linux {
     static func makeTestCase<T: XCTestCase>(using list: TestList<T>) -> TestCase {
         let manifest: TestManifest = list.map { name, function in
@@ -33,8 +29,6 @@ internal extension Linux {
 }
 
 #if canImport(ObjectiveC)
-@available(iOS 13.0.0, *)
-@available(OSX 10.15, *)
 internal final class LinuxVerificationTests: XCTestCase {
     func testAllTestsRunOnLinux() {
         for testCase in allTests() {
