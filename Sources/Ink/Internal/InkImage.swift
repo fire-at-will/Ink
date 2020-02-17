@@ -29,7 +29,9 @@ internal struct InkImage: Fragment {
     }
     
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
-        let url = URL(string: String(link.target.url(from: urls)))
+        print(link.target)
+        let urlString = String(link.target.url(from: urls))
+        let url = URL(string: )
         return AnyView(URLImage(imageUrl: url))
     }
 
