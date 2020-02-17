@@ -29,10 +29,13 @@ internal struct InkImage: Fragment {
     }
     
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
-        print(link.target)
         let urlString = String(link.target.url(from: urls))
-        let url = URL(string: )
-        return AnyView(URLImage(imageUrl: url))
+        let url = URL(string: urlString)
+        return AnyView(HStack {
+            URLImage(imageUrl: url)
+                .padding(.vertical)
+            Spacer()
+        })
     }
 
     func plainText() -> String {
