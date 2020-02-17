@@ -39,11 +39,13 @@ internal struct Link: Fragment {
     }
     
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
-        let url = URL(string: String(target.url(from: urls)))!
-        print(url.absoluteString)
+//        let url = URL(string: String(target.url(from: urls)))
         
+        guard let a = URL(string: String(target.url(from: urls))) else {
+            return AnyView(Text(text.plainText()))
+        }
         return AnyView(
-            Button(action: {UIApplication.shared.open(url)}) {
+            Button(action: {UIApplication.shared.open(a)}) {
                 Text(text.plainText()).foregroundColor(Color(.systemBlue))
             }
         )

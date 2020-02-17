@@ -11,7 +11,6 @@ import PackageDescription
 let package = Package(
     name: "Ink",
     platforms: [
-        .macOS(.v10_15),
         .iOS(SupportedPlatform.IOSVersion.v13)
     ],
     products: [

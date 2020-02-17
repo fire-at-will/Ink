@@ -350,7 +350,7 @@ private extension FormattedText {
             switch reader.currentCharacter {
             case "`": return InlineCode.self
             case "[": return Link.self
-            case "!": return Image.self
+            case "!": return InkImage.self
             case "<": return HTML.self
             default: return nil
             }

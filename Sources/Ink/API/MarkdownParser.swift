@@ -52,7 +52,7 @@ public struct MarkdownParser {
     public func parse(_ markdown: String) -> Markdown {
         var reader = Reader(string: markdown)
         var fragments = [ParsedFragment]()
-        var urlsByName = [String : URL]()
+        var urlsByName = [String : InkURL]()
         var titleHeading: Heading?
         var metadata: Metadata?
 
@@ -101,7 +101,7 @@ public struct MarkdownParser {
                 applyingModifiers: modifiers
             )
             
-            let swiftUIView = wrapper.fragment.swiftUIView()
+            let swiftUIView = wrapper.fragment.swiftUIView(usingURLs: urls)
             swiftUIViews.append(swiftUIView)
             
             result.append(html)
@@ -142,7 +142,7 @@ private extension MarkdownParser {
                       nextCharacter: Character?) -> Fragment.Type {
         switch character {
         case "#": return Heading.self
-        case "!": return Image.self
+        case "!": return InkImage.self
         case "<": return HTML.self
         case ">": return Blockquote.self
         case "`": return CodeBlock.self

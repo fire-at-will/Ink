@@ -4,4 +4,4 @@
 *  MIT license, see LICENSE file for details
 */
 
-internal typealias URL = Substring
+internal typealias InkURL = Substring

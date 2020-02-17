@@ -6,14 +6,14 @@
 
 import SwiftUI
 
-internal struct Image: Fragment {
+internal struct InkImage: Fragment {
     var modifierTarget: Modifier.Target { .images }
 
     private var link: Link
 
-    static func read(using reader: inout Reader) throws -> Image {
+    static func read(using reader: inout Reader) throws -> InkImage {
         try reader.read("!")
-        return try Image(link: .read(using: &reader))
+        return try InkImage(link: .read(using: &reader))
     }
 
     func html(usingURLs urls: NamedURLCollection,
@@ -29,7 +29,8 @@ internal struct Image: Fragment {
     }
     
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
-        return AnyView(Text("TODO: Image"))
+        let url = URL(string: String(link.target.url(from: urls)))
+        return AnyView(URLImage(imageUrl: url))
     }
 
     func plainText() -> String {
