@@ -58,9 +58,10 @@ fileprivate struct BlockQuote: ViewModifier {
             content
                 .font(.body)
                 .foregroundColor(Color(.secondaryLabel))
-            Spacer()
         }
         .padding()
+        .leadingAligned()
+        .background(Color.blue)
         
     }
 }

@@ -23,7 +23,7 @@ internal struct Paragraph: Fragment {
     
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
         let body = text.plainText()
-        return AnyView(Text(body).font(.body).fixedSize(horizontal: false, vertical: true))
+        return AnyView(Text(body).font(.body).fixedSize(horizontal: false, vertical: true).leadingAligned())
     }
 
     func plainText() -> String {

@@ -68,11 +68,12 @@ public struct MarkdownParser {
                     }
                 }
 
-                guard reader.currentCharacter != "[" else {
-                    let declaration = try URLDeclaration.readOrRewind(using: &reader)
-                    urlsByName[declaration.name] = declaration.url
-                    continue
-                }
+                #warning("TODO: Register urls here")
+//                guard reader.currentCharacter != "[" else {
+//                    let declaration = try URLDeclaration.readOrRewind(using: &reader)
+//                    urlsByName[declaration.name] = declaration.url
+//                    continue
+//                }
 
                 let type = fragmentType(for: reader.currentCharacter,
                                         nextCharacter: reader.nextCharacter)
@@ -108,11 +109,14 @@ public struct MarkdownParser {
         }
         
         let swiftUIView = AnyView(
-            VStack {
+            VStack(alignment: .leading) {
                 ForEach(0..<swiftUIViews.count) { i in
                     swiftUIViews[i]
+                        .frame(maxWidth: .infinity)
                 }
-            }.padding()
+            }
+            .padding()
+            .frame(maxWidth: .infinity)
         )
 
         return Markdown(
@@ -150,6 +154,7 @@ private extension MarkdownParser {
              "*" where character == nextCharacter:
             return HorizontalLine.self
         case "-", "*", "+", \.isNumber: return List.self
+        case "[": return Link.self
         default: return Paragraph.self
         }
     }

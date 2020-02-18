@@ -49,21 +49,40 @@ internal struct FormattedText: Readable, HTMLConvertible, SwiftUIConvertible, Pl
         }
     }
     
+    func viewForComponentIndex(_ index: Int, usingURLs urls: NamedURLCollection) -> AnyView {
+        switch components[index] {
+        case .linebreak:
+            return AnyView(Text("\n"))
+        case .text(let newText):
+            return AnyView(Text(newText))
+        case .styleMarker:
+            return AnyView(Rectangle().frame(width: 0, height: 0).background(Color.clear))
+        case .fragment(let fragment, _):
+            return fragment.swiftUIView(usingURLs: urls)
+        }
+    }
+    
     func swiftUIView(usingURLs urls: NamedURLCollection) -> AnyView {
-        AnyView(
-            components.reduce(into: Text("")) { text, component in
-                switch component {
-                case .linebreak:
-                    text = text + Text("\n")
-                case .text(let newText):
-                    text = text + Text(newText)
-                case .styleMarker:
-                    break
-                case .fragment(let fragment, _):
-                    text = text + Text(fragment.plainText())
-                }
+        return AnyView(VStack {
+            ForEach(0..<components.count) { index in
+                
+                self.viewForComponentIndex(index, usingURLs: urls)
             }
-        )
+        })
+        //        AnyView(
+        //            components.reduce(into: Text("")) { text, component in
+        //                switch component {
+        //                case .linebreak:
+        //                    text = text + Text("\n")
+        //                case .text(let newText):
+        //                    text = text + Text(newText)
+        //                case .styleMarker:
+        //                    break
+        //                case .fragment(let fragment, _):
+        //                    text = text + Text(fragment.plainText())
+        //                }
+        //            }
+        //        )
     }
     
     func plainText() -> String {
